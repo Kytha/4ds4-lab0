@@ -1,0 +1,2 @@
+/home/ds/Documents/Lab 0/Report Code/experiment_3/utilities/fsl_debug_console.h:152:24:DbgConsole_Init	24	static
+../board/board.c:26:6:BOARD_InitDebugConsole	16	static

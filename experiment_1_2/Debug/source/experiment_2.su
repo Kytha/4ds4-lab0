@@ -1,0 +1,4 @@
+../source/experiment_2.c:42:5:main1	16	static
+../source/experiment_2.c:66:6:part_a	24	static
+../source/experiment_2.c:76:6:part_b	16	static
+../source/experiment_2.c:84:6:part_c	4	static

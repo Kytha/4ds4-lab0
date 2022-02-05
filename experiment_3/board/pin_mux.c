@@ -62,9 +62,12 @@ void BOARD_InitPins(void)
 {
 	/* Port D Clock Gate Control: Clock enabled */
 	CLOCK_EnableClock(kCLOCK_PortD);
+	CLOCK_EnableClock(kCLOCK_PortC);
 
 	/* PORTD13 is configured as PTD13 */
-	PORT_SetPinMux(PORTD, 13U, kPORT_MuxAsGpio);
+	PORT_SetPinMux(PORTD, 1U, kPORT_MuxAsGpio);
+	PORT_SetPinMux(PORTC, 9U, kPORT_MuxAsGpio);
+	PORT_SetPinMux(PORTC, 8U, kPORT_MuxAsGpio);
 }
 /***********************************************************************************************************************
  * EOF

@@ -1,0 +1,3 @@
+../source/gpio.c:3:6:ky_GPIO_PinInit	24	static
+../source/gpio.c:16:6:ky_GPIO_PortSet	16	static
+../source/gpio.c:21:6:ky_GPIO_PortClear	16	static

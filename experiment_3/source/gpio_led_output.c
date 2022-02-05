@@ -10,13 +10,22 @@
 #include "clock_config.h"
 #include "board.h"
 #include "fsl_debug_console.h"
-#include "fsl_gpio.h"
+//#include "fsl_gpio.h"
+#include "gpio.h"
+
+
 
 /*******************************************************************************
  * Definitions
  ******************************************************************************/
-#define BOARD_LED_GPIO     GPIOD
-#define BOARD_LED_GPIO_PIN 13
+#define BOARD_LED_GPIO_BLUE     ky_GPIOC
+#define BOARD_LED_PIN_BLUE 		8
+
+#define BOARD_LED_GPIO_GREEN    ky_GPIOC
+#define BOARD_LED_PIN_GREEN 	9
+
+#define BOARD_LED_GPIO_RED    	ky_GPIOD
+#define BOARD_LED_PIN_RED 		1
 
 /*******************************************************************************
  * Prototypes
@@ -62,12 +71,44 @@ int main(void)
     PRINTF("\r\n GPIO Driver example\r\n");
     PRINTF("\r\n The LED is blinking.\r\n");
 
+    ky_GPIO_PinInit(BOARD_LED_GPIO_BLUE, BOARD_LED_PIN_BLUE, 0);
+    ky_GPIO_PinInit(BOARD_LED_GPIO_GREEN, BOARD_LED_PIN_GREEN, 0);
+    ky_GPIO_PinInit(BOARD_LED_GPIO_RED, BOARD_LED_PIN_RED, 0);
     /* Init output LED GPIO. */
-    GPIO_PinInit(BOARD_LED_GPIO, BOARD_LED_GPIO_PIN, &led_config);
+    /*
+    GPIO_PinInit(BOARD_LED_GPIO_BLUE, BOARD_LED_PIN_BLUE, &led_config);
+    GPIO_PinInit(BOARD_LED_GPIO_GREEN, BOARD_LED_PIN_GREEN, &led_config);
+    GPIO_PinInit(BOARD_LED_GPIO_RED, BOARD_LED_PIN_RED, &led_config);
+    */
 
     while (1)
     {
+    	delay();
+    	ky_GPIO_PortSet(BOARD_LED_GPIO_BLUE, 1u << BOARD_LED_PIN_BLUE);
         delay();
-        GPIO_PortToggle(BOARD_LED_GPIO, 1u << BOARD_LED_GPIO_PIN);
+        ky_GPIO_PortClear(BOARD_LED_GPIO_BLUE, 1u << BOARD_LED_PIN_BLUE);
+        delay();
+        ky_GPIO_PortSet(BOARD_LED_GPIO_GREEN, 1u << BOARD_LED_PIN_GREEN);
+        delay();
+        ky_GPIO_PortClear(BOARD_LED_GPIO_GREEN, 1u << BOARD_LED_PIN_GREEN);
+        delay();
+        ky_GPIO_PortSet(BOARD_LED_GPIO_RED, 1u << BOARD_LED_PIN_RED);
+        delay();
+        ky_GPIO_PortClear(BOARD_LED_GPIO_RED, 1u << BOARD_LED_PIN_RED);
+
+    	/*
+    	delay();
+    	GPIO_PortSet(BOARD_LED_GPIO_BLUE, 1u << BOARD_LED_PIN_BLUE);
+        delay();
+        GPIO_PortClear(BOARD_LED_GPIO_BLUE, 1u << BOARD_LED_PIN_BLUE);
+        delay();
+        GPIO_PortSet(BOARD_LED_GPIO_GREEN, 1u << BOARD_LED_PIN_GREEN);
+        delay();
+        GPIO_PortClear(BOARD_LED_GPIO_GREEN, 1u << BOARD_LED_PIN_GREEN);
+        delay();
+        GPIO_PortSet(BOARD_LED_GPIO_RED, 1u << BOARD_LED_PIN_RED);
+        delay();
+        GPIO_PortClear(BOARD_LED_GPIO_RED, 1u << BOARD_LED_PIN_RED);
+        */
     }
 }

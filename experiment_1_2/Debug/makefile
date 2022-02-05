@@ -30,25 +30,25 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: lab0_problem_1_2.axf
+all: experiment_1_2.axf
 
 # Tool invocations
-lab0_problem_1_2.axf: $(OBJS) $(USER_OBJS)
+experiment_1_2.axf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MCU Linker'
-	arm-none-eabi-gcc -nostdlib -Xlinker -Map="lab0_problem_1_2.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -T "lab0_problem_1_2_Debug.ld" -o "lab0_problem_1_2.axf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-gcc -nostdlib -Xlinker -Map="experiment_1_2.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -T "lab0_problem_1_2_Debug.ld" -o "experiment_1_2.axf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 	$(MAKE) --no-print-directory post-build
 
 # Other Targets
 clean:
-	-$(RM) $(EXECUTABLES)$(OBJS)$(C_DEPS) lab0_problem_1_2.axf
+	-$(RM) $(EXECUTABLES)$(OBJS)$(C_DEPS) experiment_1_2.axf
 	-@echo ' '
 
 post-build:
 	-@echo 'Performing post-build steps'
-	-arm-none-eabi-size "lab0_problem_1_2.axf"; # arm-none-eabi-objcopy -v -O binary "lab0_problem_1_2.axf" "lab0_problem_1_2.bin" ; # checksum -p MK66FN2M0xxx18 -d "lab0_problem_1_2.bin";
+	-arm-none-eabi-size "experiment_1_2.axf"; # arm-none-eabi-objcopy -v -O binary "experiment_1_2.axf" "experiment_1_2.bin" ; # checksum -p MK66FN2M0xxx18 -d "experiment_1_2.bin";
 	-@echo ' '
 
 .PHONY: all clean dependents post-build

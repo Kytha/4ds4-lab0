@@ -6,11 +6,11 @@
  * Generated linker script file for MK66FN2M0xxx18
  * Created from library.ldt by FMCreateLinkLibraries
  * Using Freemarker v2.3.30
- * MCUXpresso IDE v11.4.1 [Build 6260] [2021-09-15] on Jan. 25, 2022, 12:34:12 p.m.
+ * MCUXpresso IDE v11.4.1 [Build 6260] [2021-09-15] on Feb. 4, 2022, 3:10:16 p.m.
  */
 
 GROUP (
-  "libcr_nohost_nf.a"
+  "libcr_semihost_nf.a"
   "libcr_c.a"
   "libcr_eabihelpers.a"
   "libgcc.a"
